@@ -1,16 +1,16 @@
 plugins {
-    id "net.serenity-bdd.serenity-gradle-plugin" version "4.1.13"
+    id "net.serenity-bdd.serenity-gradle-plugin" version "4.1.14"
     id 'java'
     id 'eclipse'
     id 'idea'
 }
 
+defaultTasks 'clean','test','aggregate'
+
 repositories {
     mavenCentral()
     mavenLocal()
 }
-
-defaultTasks 'clean','test','aggregate'
 
 ext {
     serenityVersion = '4.1.20'
@@ -24,7 +24,7 @@ dependencies {
     implementation group: 'net.serenity-bdd',       name: 'serenity-screenplay',      version: "$rootProject.ext.serenityVersion"
     implementation group: 'net.serenity-bdd',       name: 'serenity-screenplay-rest', version: "$rootProject.ext.serenityVersion"
     implementation group: 'net.serenity-bdd',       name: 'serenity-ensure',          version: "$rootProject.ext.serenityVersion"
-    implementation group: 'net.serenity-bdd',       name: 'serenity-junit5',          version: "$rootProject.ext.serenityVersion"
+    implementation group: 'net.serenity-bdd',       name: 'serenity-junit',           version: "$rootProject.ext.serenityVersion"
     implementation group: 'org.slf4j',              name: 'slf4j-api',                version: "$rootProject.ext.slf4jVersion"
     implementation group: 'org.json',               name:'json',                      version: '20240303'
     implementation group: 'net.datafaker',          name: 'datafaker',                version: '2.2.2'
