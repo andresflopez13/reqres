@@ -1,6 +1,6 @@
 package co.com.tyba.reqres.backend.tasks;
 
-import co.com.tyba.reqres.backend.model.UserAuthentication;
+import co.com.tyba.reqres.backend.model.User;
 import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -9,12 +9,12 @@ import net.thucydides.model.util.EnvironmentVariables;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 import io.restassured.http.ContentType;
 
-public class LoginIntoBackend implements Task {
+public class Login implements Task {
 
-    private final UserAuthentication credentials;
+    private final User credentials;
     public static EnvironmentVariables environmentVariables;
 
-    public LoginIntoBackend(UserAuthentication credentials) {
+    public Login(User credentials) {
         this.credentials = credentials;
     }
 
@@ -26,7 +26,7 @@ public class LoginIntoBackend implements Task {
                         .body(credentials)));
     }
 
-    public static LoginIntoBackend withCredentials(UserAuthentication credentials) {
-        return Tasks.instrumented(LoginIntoBackend.class, credentials);
+    public static Login withCredentials(User credentials) {
+        return Tasks.instrumented(Login.class, credentials);
     }
 }
